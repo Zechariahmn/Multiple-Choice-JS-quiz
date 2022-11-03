@@ -115,3 +115,31 @@ hr {
     color: var(--backgroundColor);
     background-color: var(--fontColor);
 }
+
+
+/* results section */
+form {
+    display: inline-flex;
+}
+
+h4 {
+    font-size: 25px;
+    margin: 20px 5px 20px 0;
+}
+
+#initials {
+    font-size: 25px;
+    margin: auto 10px;
+    padding: 5px 10px;
+    border: 2px solid var(--backgroundColor);
+    color: #0c0c0c;
+}
+
+#submit {
+    font-size: 20px;
+    margin: auto 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--fontColor);
+    color: var(--backgroundColor);
+}
