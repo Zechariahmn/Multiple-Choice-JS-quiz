@@ -83,3 +83,19 @@ hr {
     margin-top: 50px;
     width: 70%;
 }
+
+
+/* begin section */
+#begin p {
+    width: 65%;
+    margin: 30px auto;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+#start {
+    margin-top: 5px;
+    padding: 10px;
+    color: var(--backgroundColor);
+    background-color: var(--fontColor);
+}
