@@ -174,3 +174,11 @@ h4 {
 .scoresList:nth-child(odd) {
     background: var(--backgroundColor);
 }
+
+
+/* media query */
+@media (max-width: 1024px) {
+    .one, .two, .three, .four, .five, .six, .seven {
+        width: 40%;
+    }
+}
