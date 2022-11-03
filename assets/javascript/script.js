@@ -4,14 +4,14 @@ let seconds = document.getElementById('seconds');
 let startPage = document.getElementById('begin');
 let startBtn = document.getElementById('START');
 
-let questions = document.querySelectorAll('.question');
-let optionsOne = document.getElementById('one');
-let optionsTwo = document.getElementById('two');
-let optionsThree = document.getElementById('three');
-let optionsFour = document.getElementById('four');
-let optionsFive = document.getElementById('five');
-let optionsix = document.getElementById('six');
-let optionsSeven = document.getElementById('seven');
+let questions = document.querySelectorAll('.questions');
+let optionsOne = document.getElementById('I');
+let optionsTwo = document.getElementById('II');
+let optionsThree = document.getElementById('III');
+let optionsFour = document.getElementById('IV');
+let optionsFive = document.getElementById('V');
+let optionsix = document.getElementById('VI');
+let optionsSeven = document.getElementById('VII');
 
 let answerResult = document.querySelectorAll('.result');
 
