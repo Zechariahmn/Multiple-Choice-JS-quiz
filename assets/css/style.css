@@ -188,3 +188,16 @@ h4 {
         width: 60%;
     }
 }
+
+
+@media (max-width: 425px) {
+    .one, .two, .three, .four, .five, .six, .seven {
+        width: 80%;  
+    }
+    header {
+        margin: 60px -90px -25px -10px;
+    }
+    #initials {
+        width: 200px;
+    }
+}
