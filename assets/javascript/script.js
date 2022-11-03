@@ -46,3 +46,10 @@ function setTime() {
 }
 
 
+// no time left function
+function zeroTime() {
+    questions[index].setAttribute('data-state', 'hidden');
+    resultsPage.setAttribute('data-state', 'visible');
+    score.textContent = timeLeft;
+}
+
