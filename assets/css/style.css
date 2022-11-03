@@ -28,3 +28,22 @@ button:hover, #submit:hover {
     color: var(--fontColor);
     cursor: pointer;
 }
+
+
+/* header */
+header {
+    margin: 60px 60px 30px 120px;
+    font-size: 25px;
+}
+
+#scores {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--fontColor);
+}
+
+#time {
+    float: right;
+    margin-right: 100px;
+    font-weight: bold;
+}
