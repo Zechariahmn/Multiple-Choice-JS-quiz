@@ -53,3 +53,41 @@ function zeroTime() {
     score.textContent = timeLeft;
 }
 
+
+// guessing answer
+function guessAnswer(event) {
+    var element = event.target;
+
+    if (element.matches('button')) {
+        var correct = element.getAttribute('data-answer');
+        
+        questions[index].setAttribute('data-state', 'hidden');
+       
+        if (correct === 'correct') {
+            answerResult[index].textContent = 'Awesome!';
+            index++;
+        } else {
+            answerResult[index].textContent = 'NOPE!';
+            index++;
+            timeLeft = timeLeft - 12;
+        }
+
+        if (timeLeft < 0) {
+            timeLeft = 0;
+        } else if (timeLeft === 0) {
+            answerResult[4].textContent = 'oops, better luck next time!';
+        }
+        
+        if (index <= 6) {
+            questions[index].setAttribute('data-state', 'visible');
+        } else {
+            questions[6].setAttribute('data-state', 'hidden');
+            resultsPage.setAttribute('data-state', 'visible');
+            seconds.textContent = timeLeft;
+            score.textContent = timeLeft;
+            clearInterval(stopTime);
+        } 
+    }
+}
+
+
