@@ -26,3 +26,23 @@ let againBtn = document.getElementById('play-again');
 let clear = document.getElementById('Delete');
 
 
+var timeLeft = 84;
+var index = 0;
+var stopTime
+var initialsList = [];
+var scores = [];
+
+// countdown function
+function setTime() {
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        seconds.textContent = timeLeft;
+        stopTime = timerInterval;
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            zeroTime()
+        }
+    }, 1000);
+}
+
+
