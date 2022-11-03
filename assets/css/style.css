@@ -1,3 +1,4 @@
+/*root css*/
 :root {
     --backgroundColor: white;
     --fontColor: black;
@@ -176,7 +177,7 @@ h4 {
 }
 
 
-/* media query */
+/* media query for application to fit on screens from laptops to mobile phones */
 @media (max-width: 1024px) {
     .one, .two, .three, .four, .five, .six, .seven {
         width: 40%;
@@ -192,12 +193,12 @@ h4 {
 
 @media (max-width: 425px) {
     .one, .two, .three, .four, .five, .six, .seven {
-        width: 80%;  
+        width: 90%;  
     }
     header {
         margin: 60px -90px -25px -10px;
     }
     #initials {
-        width: 200px;
+        width: 120px;
     }
 }
