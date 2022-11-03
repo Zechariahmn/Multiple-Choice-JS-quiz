@@ -99,3 +99,19 @@ hr {
     color: var(--backgroundColor);
     background-color: var(--fontColor);
 }
+
+
+/* questions */
+[data-state="hidden"] {
+    display: none;
+}
+
+.one, .two, .three, .four, .five, .six, .seven {
+    display: block;
+    text-align: left;
+    width: 30%;
+    margin: 10px auto;
+    padding: 10px 5px;
+    color: var(--backgroundColor);
+    background-color: var(--fontColor);
+}
