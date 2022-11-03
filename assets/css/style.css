@@ -155,7 +155,7 @@ h4 {
     margin: 20px auto;
 }
 
-#play-again, #clear {
+#play-again, #Delete {
     padding: 10px;
     margin: 10px;
     color: var(--backgroundColor);

@@ -13,3 +13,16 @@ let optionsFive = document.getElementById('five');
 let optionsix = document.getElementById('six');
 let optionsSeven = document.getElementById('seven');
 
+let answerResult = document.querySelectorAll('.result');
+
+let resultsPage = document.getElementById('results')
+let score = document.getElementById('score');
+let initials = document.getElementById('initials');
+let submitBtn = document.getElementById('submit');
+
+let highScoresPage = document.getElementById('high-scores');
+let highScoresList = document.getElementById('all-scores');
+let againBtn = document.getElementById('play-again');
+let clear = document.getElementById('Delete');
+
+
