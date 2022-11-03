@@ -47,3 +47,39 @@ header {
     margin-right: 100px;
     font-weight: bold;
 }
+
+/* main sections */
+#begin, .question, #results, #high-scores {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    margin: 50px auto;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+}
+
+h1 {
+    font-size: 55px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 30px;
+    margin: 20px 5px 20px 0;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+hr {
+    margin-top: 50px;
+    width: 70%;
+}
