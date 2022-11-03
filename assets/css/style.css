@@ -143,3 +143,34 @@ h4 {
     background: var(--fontColor);
     color: var(--backgroundColor);
 }
+
+
+/* high scores section */
+#underline {
+    text-decoration: underline;
+}
+
+#all-scores {
+    margin: 20px auto;
+}
+
+#play-again, #clear {
+    padding: 10px;
+    margin: 10px;
+    color: var(--backgroundColor);
+    background-color: var(--fontColor);
+}
+
+.scoresList {
+    font-size: 25px;
+    padding: 15px;
+    background: var(--backgroundColor);
+    width: 365px;
+    margin: auto;
+    list-style-position: inside;
+    text-align: left;
+}
+
+.scoresList:nth-child(odd) {
+    background: var(--backgroundColor);
+}
