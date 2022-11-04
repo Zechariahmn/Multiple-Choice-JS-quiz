@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="assets\css\style.css">
 </head>
 <body>
+
+    <!--Section for the timer and the link to the highscores page-->
     <header>
         <a id="scores" href="#high-scores">View High Scores</a>
         <p id="time">Time: <span id="seconds">84</span></p>
     </header>
+
+    <!--Section containing start page text and start button-->
     <main>
         <section id="begin" data-state="visible">
             <h1>Multiple Choice Quiz</h1>
@@ -21,6 +25,7 @@
             <button id="start">START</button>
         </section>
         
+      <!--Section containing the seven questions used for the quiz-->  
         <section id="question1" class="question" data-state="hidden">
             <h2>What does HTMl stand for?:</h2>
             <div id="one">
@@ -96,6 +101,8 @@
             <hr/>
             <h3 class="result"></h3>
         </section>
+
+    <!--Section containing the results page along with the input of initials and start button-->
         <section id="results" data-state="hidden">
             <h2>FINISHED!</h2>
             <h4>Your final score is <span id="score"></span>.</h4>
@@ -107,6 +114,8 @@
             <hr/>
             <h3 class="result"></h3>
         </section>
+
+      <!--Section containing the highscores page along with the 'play-again' and 'clear' button-->  
         <section id="high-scores" data-state="hidden">
             <h1 id="underline">High Scores</h1>
             <ol id="all-scores"></ol>
