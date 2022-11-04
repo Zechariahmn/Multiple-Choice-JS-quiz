@@ -91,3 +91,21 @@ function guessAnswer(event) {
 }
 
 
+// renders initials and score into a li element
+function renderHighScores() {
+    resultsPage.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+    highScoresList.innerHTML = '';
+    for (var i = 0; i < initialsList.length; i++) {
+        var newInitials = initialsList[i];
+        var newScores = scores[i];
+
+        var li = document.createElement('li');
+        li.setAttribute('class', 'scoresList')
+        li.textContent = newInitials + ' - ' + newScores;
+
+        highScoresList.appendChild(li);
+    }
+}
+
+
