@@ -174,3 +174,13 @@ viewHighScores.addEventListener('click', function() {
 })
 
 
+againBtn.addEventListener('click', function() {
+    highScoresPage.setAttribute('data-state', 'hidden');
+    startPage.setAttribute('data-state', 'visible');
+    timer.setAttribute('data-state', 'visible');
+    timeLeft = 84;
+    seconds.textContent = timeLeft;
+    index = 0;
+})
+
+
