@@ -19,6 +19,8 @@ N/A
 ## Usage
 To use this repo, the users must click the 'START' button which will take them to the actual quiz where they will have to answer a series of seven different questions within the given time limit of (84 seconds), in the process of answering th equestions if any of the answers are wrong then the user will face a (-10 second) penalty to their total time, If the user has guessed the answers correctly they will be prompted with a "You rock!" response, if they have guessed incorrectly then they will be prompted with a "Oopsies" response. Once the user has completed answering all the questions then they will be taking to the results page where they will be given a score based on how fast they answered the questions and how many of them they have gotten correct. Once the user has inputted their intials into the input bar and have clicked the submit button then they will be redirected to the highscores page where their score and any of the scores of other users who have played the game will be displayed, there they will also have the options of clearing the highscores list and or playing the quiz again.
 
+##URL
+
 ## License
 This project is licensed under the MIT https://opensource.org/licenses/MIT
 
