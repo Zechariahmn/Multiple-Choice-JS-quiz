@@ -184,3 +184,9 @@ againBtn.addEventListener('click', function() {
 })
 
 
+clear.addEventListener('click', function() {
+    localStorage.clear()
+    highScoresList.textContent = "";
+    initialsList = [];
+    scores = [];
+})
