@@ -1,3 +1,4 @@
+//Creation of elements going to be used in the javascript for the application
 let viewHighScores = document.getElementById('scores');
 let timer = document.getElementById('time');
 let seconds = document.getElementById('seconds');
@@ -31,7 +32,7 @@ let stopTime
 let initialsList = [];
 let scores = [];
 
-// countdown function
+// Function that allows the timer to countdown correctly
 function setTime() {
     let timerInterval = setInterval(function() {
         timeLeft--;
@@ -51,7 +52,7 @@ function zeroTime() {
     score.textContent = timeLeft;
 }
 
-// guessing answer
+// Function that allows users to guess the answers in the quiz
 function guessAnswer(event) {
     let element = event.target;
 
@@ -61,10 +62,10 @@ function guessAnswer(event) {
         questions[index].setAttribute('data-state', 'hidden');
        
         if (correct === 'correct') {
-            answerResult[index].textContent = 'Correct!';
+            answerResult[index].textContent = 'You Rock!';
             index++;
         } else {
-            answerResult[index].textContent = 'Wrong!';
+            answerResult[index].textContent = 'Oopsies!';
             index++;
             timeLeft = timeLeft - 10;
         }
@@ -87,7 +88,7 @@ function guessAnswer(event) {
     }
 }
 
-// renders initials and score into a li element
+// Function that allows the initials and scores inputted to be placed into the highscores list
 function renderHighScores() {
     resultsPage.setAttribute('data-state', 'hidden');
     highScoresPage.setAttribute('data-state', 'visible');
@@ -104,7 +105,7 @@ function renderHighScores() {
     }
 }
 
-// gets stored initials and scores from local storage
+// Function that allows the application to get the stored initials and scores
 function getStoredScores() {
     let storedInitials = JSON.parse(localStorage.getItem('initialsList'));
     let storedScores = JSON.parse(localStorage.getItem('scores'));
@@ -115,13 +116,14 @@ function getStoredScores() {
     }
 }
 
-// stores initials and score into local storage
+// Function that stores initials and scores into the local storage
 function storeScores() {
     localStorage.setItem('initialsList', JSON.stringify(initialsList));
 
     localStorage.setItem('scores', JSON.stringify(scores));
 }
 
+// Function that hides the other pages and displays the highscores page
 viewHighScores.addEventListener('click', function() {
     startPage.setAttribute('data-state', 'hidden');
     timer.setAttribute('data-state', 'hidden');
@@ -130,12 +132,15 @@ viewHighScores.addEventListener('click', function() {
     renderHighScores();
 })
 
+// Function that takes the user to the quiz once the start button has been clicked
 startBtn.addEventListener('click', function() {
     setTime();
     startPage.setAttribute('data-state', 'hidden');
     questions[0].setAttribute('data-state', 'visible');
 }) 
 
+
+// Allows the user to click and guess the answers to the question
 optionsOne.addEventListener('click', guessAnswer)
 optionsTwo.addEventListener('click', guessAnswer)
 optionsThree.addEventListener('click', guessAnswer)
@@ -144,6 +149,7 @@ optionsFive.addEventListener('click', guessAnswer)
 optionsSix.addEventListener('click', guessAnswer)
 optionsSeven.addEventListener('click', guessAnswer)
 
+// function that will send the inputted initials and scores to the highscores list to be displayed
 submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -163,6 +169,7 @@ submitBtn.addEventListener('click', function(event) {
     renderHighScores();
 });
 
+// Function that allows the user to restart the application and play the quiz again
 againBtn.addEventListener('click', function() {
     highScoresPage.setAttribute('data-state', 'hidden');
     startPage.setAttribute('data-state', 'visible');
@@ -172,6 +179,7 @@ againBtn.addEventListener('click', function() {
     index = 0;
 })
 
+// Function that allows the user to clear the highscore list
 clear.addEventListener('click', function() {
     localStorage.clear()
     highScoresList.textContent = "";
