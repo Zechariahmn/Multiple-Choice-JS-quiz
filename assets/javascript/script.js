@@ -26,6 +26,22 @@ let againBtn = document.getElementById('play-again');
 let clear = document.getElementById('Delete');
 
 
+startBtn.addEventListener('click', function() {
+    setTime();
+    startPage.setAttribute('data-state', 'hidden');
+    questions[0].setAttribute('data-state', 'visible');
+}) 
+
+
+optionsOne.addEventListener('click', guessAnswer)
+optionsTwo.addEventListener('click', guessAnswer)
+optionsThree.addEventListener('click', guessAnswer)
+optionsFour.addEventListener('click', guessAnswer)
+optionsFive.addEventListener('click', guessAnswer)
+optionsSix.addEventListener('click', guessAnswer)
+optionsSeven.addEventListener('click', guessAnswer)
+
+
 var timeLeft = 84;
 var index = 0;
 var stopTime
@@ -127,5 +143,14 @@ function getStoredScores() {
         scores = storedScores;
     }
 }
+
+
+viewHighScores.addEventListener('click', function() {
+    startPage.setAttribute('data-state', 'hidden');
+    timer.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+    getStoredScores();
+    renderHighScores();
+})
 
 
