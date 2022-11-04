@@ -164,6 +164,9 @@ function getStoredScores() {
     }
 }
 
+// retrieves the scores and initials and renders them to the page on load
+getStoredScores()
+
 
 viewHighScores.addEventListener('click', function() {
     startPage.setAttribute('data-state', 'hidden');
