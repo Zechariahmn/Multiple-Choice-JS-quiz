@@ -107,6 +107,26 @@ function guessAnswer(event) {
 }
 
 
+submitBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    timer.setAttribute('data-state', 'hidden');
+
+    var initialsText = initials.value.trim().toUpperCase();
+
+    if (initialsText === "") {
+        return;
+    }
+
+    initialsList.push(initialsText);
+    initials.value = "";
+    scores.push(score.textContent);
+    storeScores();
+    getStoredScores();
+    renderHighScores();
+});
+
+
 // renders initials and score into a li element
 function renderHighScores() {
     resultsPage.setAttribute('data-state', 'hidden');
