@@ -109,6 +109,14 @@ function renderHighScores() {
 }
 
 
+// stores initials and score into local storage
+function storeScores() {
+    localStorage.setItem('initialsList', JSON.stringify(initialsList));
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
+
+
 // gets stored initials and scores from local storage
 function getStoredScores() {
     var storedInitials = JSON.parse(localStorage.getItem('initialsList'));
