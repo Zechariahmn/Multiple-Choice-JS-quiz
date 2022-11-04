@@ -24,11 +24,17 @@ button {
     border-radius: 5px;
 }
 
-button:hover, #submit:hover {
+button:hover, #submit:hover, #start:hover, #play-again:hover, #Delete:hover {
     background: var(--hoverColor);
     color: var(--fontColor);
     cursor: pointer;
 }
+
+.button:active, #submit:active, #start:hover, #play-again:hover, #Delete:hover {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 
 
 /* header */

@@ -2,16 +2,16 @@ let viewHighScores = document.getElementById('scores');
 let timer = document.getElementById('time');
 let seconds = document.getElementById('seconds');
 let startPage = document.getElementById('begin');
-let startBtn = document.getElementById('START');
+let startBtn = document.getElementById('start');
 
-let questions = document.querySelectorAll('.questions');
-let optionsOne = document.getElementById('I');
-let optionsTwo = document.getElementById('II');
-let optionsThree = document.getElementById('III');
-let optionsFour = document.getElementById('IV');
-let optionsFive = document.getElementById('V');
-let optionsix = document.getElementById('VI');
-let optionsSeven = document.getElementById('VII');
+let questions = document.querySelectorAll('.question');
+let optionsOne = document.getElementById('one');
+let optionsTwo = document.getElementById('two');
+let optionsThree = document.getElementById('three');
+let optionsFour = document.getElementById('four');
+let optionsFive = document.getElementById('five');
+let optionsSix = document.getElementById('six');
+let optionsSeven = document.getElementById('seven');
 
 let answerResult = document.querySelectorAll('.result');
 
@@ -25,32 +25,15 @@ let highScoresList = document.getElementById('all-scores');
 let againBtn = document.getElementById('play-again');
 let clear = document.getElementById('Delete');
 
-
-startBtn.addEventListener('click', function() {
-    setTime();
-    startPage.setAttribute('data-state', 'hidden');
-    questions[0].setAttribute('data-state', 'visible');
-}) 
-
-
-optionsOne.addEventListener('click', guessAnswer)
-optionsTwo.addEventListener('click', guessAnswer)
-optionsThree.addEventListener('click', guessAnswer)
-optionsFour.addEventListener('click', guessAnswer)
-optionsFive.addEventListener('click', guessAnswer)
-optionsSix.addEventListener('click', guessAnswer)
-optionsSeven.addEventListener('click', guessAnswer)
-
-
-var timeLeft = 84;
-var index = 0;
-var stopTime
-var initialsList = [];
-var scores = [];
+let timeLeft = 84;
+let index = 0;
+let stopTime
+let initialsList = [];
+let scores = [];
 
 // countdown function
 function setTime() {
-    var timerInterval = setInterval(function() {
+    let timerInterval = setInterval(function() {
         timeLeft--;
         seconds.textContent = timeLeft;
         stopTime = timerInterval;
@@ -61,7 +44,6 @@ function setTime() {
     }, 1000);
 }
 
-
 // no time left function
 function zeroTime() {
     questions[index].setAttribute('data-state', 'hidden');
@@ -69,35 +51,34 @@ function zeroTime() {
     score.textContent = timeLeft;
 }
 
-
 // guessing answer
 function guessAnswer(event) {
-    var element = event.target;
+    let element = event.target;
 
     if (element.matches('button')) {
-        var correct = element.getAttribute('data-answer');
+        let correct = element.getAttribute('data-answer');
         
         questions[index].setAttribute('data-state', 'hidden');
        
         if (correct === 'correct') {
-            answerResult[index].textContent = 'Awesome!';
+            answerResult[index].textContent = 'Correct!';
             index++;
         } else {
-            answerResult[index].textContent = 'NOPE!';
+            answerResult[index].textContent = 'Wrong!';
             index++;
-            timeLeft = timeLeft - 12;
+            timeLeft = timeLeft - 10;
         }
 
         if (timeLeft < 0) {
             timeLeft = 0;
         } else if (timeLeft === 0) {
-            answerResult[4].textContent = 'oops, better luck next time!';
+            answerResult[4].textContent = '';
         }
         
-        if (index <= 6) {
+        if (index <= 4) {
             questions[index].setAttribute('data-state', 'visible');
         } else {
-            questions[6].setAttribute('data-state', 'hidden');
+            questions[4].setAttribute('data-state', 'hidden');
             resultsPage.setAttribute('data-state', 'visible');
             seconds.textContent = timeLeft;
             score.textContent = timeLeft;
@@ -106,13 +87,69 @@ function guessAnswer(event) {
     }
 }
 
+// renders initials and score into a li element
+function renderHighScores() {
+    resultsPage.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+    highScoresList.innerHTML = '';
+    for (let i = 0; i < initialsList.length; i++) {
+        let newInitials = initialsList[i];
+        let newScores = scores[i];
+
+        let li = document.createElement('li');
+        li.setAttribute('class', 'scoresList')
+        li.textContent = newInitials + ' - ' + newScores;
+
+        highScoresList.appendChild(li);
+    }
+}
+
+// gets stored initials and scores from local storage
+function getStoredScores() {
+    let storedInitials = JSON.parse(localStorage.getItem('initialsList'));
+    let storedScores = JSON.parse(localStorage.getItem('scores'));
+
+    if (storedInitials !== null) {
+        initialsList = storedInitials;
+        scores = storedScores;
+    }
+}
+
+// stores initials and score into local storage
+function storeScores() {
+    localStorage.setItem('initialsList', JSON.stringify(initialsList));
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
+
+viewHighScores.addEventListener('click', function() {
+    startPage.setAttribute('data-state', 'hidden');
+    timer.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+    getStoredScores();
+    renderHighScores();
+})
+
+startBtn.addEventListener('click', function() {
+    setTime();
+    startPage.setAttribute('data-state', 'hidden');
+    questions[0].setAttribute('data-state', 'visible');
+}) 
+
+optionsOne.addEventListener('click', guessAnswer)
+optionsTwo.addEventListener('click', guessAnswer)
+optionsThree.addEventListener('click', guessAnswer)
+optionsFour.addEventListener('click', guessAnswer)
+optionsFive.addEventListener('click', guessAnswer)
+optionsSix.addEventListener('click', guessAnswer)
+optionsSeven.addEventListener('click', guessAnswer)
 
 submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
 
     timer.setAttribute('data-state', 'hidden');
 
-    var initialsText = initials.value.trim().toUpperCase();
+    let initialsText = initials.value.trim().toUpperCase();
 
     if (initialsText === "") {
         return;
@@ -126,57 +163,6 @@ submitBtn.addEventListener('click', function(event) {
     renderHighScores();
 });
 
-
-// renders initials and score into a li element
-function renderHighScores() {
-    resultsPage.setAttribute('data-state', 'hidden');
-    highScoresPage.setAttribute('data-state', 'visible');
-    highScoresList.innerHTML = '';
-    for (var i = 0; i < initialsList.length; i++) {
-        var newInitials = initialsList[i];
-        var newScores = scores[i];
-
-        var li = document.createElement('li');
-        li.setAttribute('class', 'scoresList')
-        li.textContent = newInitials + ' - ' + newScores;
-
-        highScoresList.appendChild(li);
-    }
-}
-
-
-// stores initials and score into local storage
-function storeScores() {
-    localStorage.setItem('initialsList', JSON.stringify(initialsList));
-
-    localStorage.setItem('scores', JSON.stringify(scores));
-}
-
-
-// gets stored initials and scores from local storage
-function getStoredScores() {
-    var storedInitials = JSON.parse(localStorage.getItem('initialsList'));
-    var storedScores = JSON.parse(localStorage.getItem('scores'));
-
-    if (storedInitials !== null) {
-        initialsList = storedInitials;
-        scores = storedScores;
-    }
-}
-
-// retrieves the scores and initials and renders them to the page on load
-getStoredScores()
-
-
-viewHighScores.addEventListener('click', function() {
-    startPage.setAttribute('data-state', 'hidden');
-    timer.setAttribute('data-state', 'hidden');
-    highScoresPage.setAttribute('data-state', 'visible');
-    getStoredScores();
-    renderHighScores();
-})
-
-
 againBtn.addEventListener('click', function() {
     highScoresPage.setAttribute('data-state', 'hidden');
     startPage.setAttribute('data-state', 'visible');
@@ -186,10 +172,12 @@ againBtn.addEventListener('click', function() {
     index = 0;
 })
 
-
 clear.addEventListener('click', function() {
     localStorage.clear()
     highScoresList.textContent = "";
     initialsList = [];
     scores = [];
 })
+
+// retrieves the scores and initials and renders them to the page on load
+getStoredScores()

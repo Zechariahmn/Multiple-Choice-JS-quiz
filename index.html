@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/style.css">
     <title>Document</title>
+    <link rel="stylesheet" href="assets\css\reset.css">
+    <link rel="stylesheet" href="assets\css\style.css">
 </head>
 <body>
     <header>
         <a id="scores" href="#high-scores">View High Scores</a>
-        <p id="time">Time: <span id="seconds">45</span></p>
+        <p id="time">Time: <span id="seconds">84</span></p>
     </header>
     <main>
         <section id="begin" data-state="visible">
             <h1>Multiple Choice Quiz</h1>
             <p>Answer the following questions as fast and as accurately as you can,</p>
-            <p>but becareful as each incorrect answer will result in (-5) seconds in your total time.</p>
-            <button id="START">begin</button>
+            <p>but becareful as each incorrect answer will result in (-10) seconds in your total time.</p>
+            <button id="start">START</button>
         </section>
         
         <section id="question1" class="question" data-state="hidden">
@@ -113,5 +114,6 @@
             <button id="Delete">Clear High Scores</button>
         </section>
     </main>
+    <script src="assets\javascript\script.js"></script>
 </body>
 </html>
